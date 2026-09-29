@@ -7,6 +7,8 @@ from urllib.parse import quote
 
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, XSD
+from rdflib.plugin import plugins
+from rdflib.serializer import Serializer
 
 
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
@@ -15,6 +17,32 @@ KEO = Namespace("https://example.org/vocab/kulturerbe/")
 KEO_SITE = Namespace("https://example.org/kulturerbe/site/")
 EPSG_URIS = {
 	"EPSG:25832": "http://www.opengis.net/def/crs/EPSG/0/25832",
+}
+SERIALIZER_FORMATS = tuple(sorted({plugin.name for plugin in plugins(None, Serializer)}))
+FORMAT_EXTENSIONS = {
+	"application/ld+json": "jsonld",
+	"application/n-quads": "nq",
+	"application/n-triples": "nt",
+	"application/rdf+xml": "rdf",
+	"application/trig": "trig",
+	"application/trix": "trix",
+	"hext": "hext",
+	"json-ld": "jsonld",
+	"longturtle": "ttl",
+	"n3": "n3",
+	"nquads": "nq",
+	"nt": "nt",
+	"nt11": "nt",
+	"ntriples": "nt",
+	"patch": "patch",
+	"pretty-xml": "rdf",
+	"text/n3": "n3",
+	"text/turtle": "ttl",
+	"trig": "trig",
+	"trix": "trix",
+	"ttl": "ttl",
+	"turtle": "ttl",
+	"xml": "rdf",
 }
 
 
@@ -96,8 +124,8 @@ def add_site(graph, row, row_number, base_uri):
 			graph.add((subject, CRM.P67_refers_to, URIRef(value)))
 
 
-def convert_csv_to_rdf(input_path, output_path, base_uri):
-	"""Read a tab-separated CSV and serialize its records as Turtle RDF."""
+def convert_csv_to_rdf(input_path, output_path, base_uri, rdf_format="turtle"):
+	"""Read a tab-separated CSV and serialize its records in the requested RDF format."""
 	graph = Graph()
 	graph.bind("crm", CRM)
 	graph.bind("geo", GEO)
@@ -112,17 +140,24 @@ def convert_csv_to_rdf(input_path, output_path, base_uri):
 		for row_number, row in enumerate(reader, start=1):
 			add_site(graph, row, row_number, base_uri)
 
-	graph.serialize(destination=output_path, format="turtle", encoding="utf-8")
+	graph.serialize(destination=output_path, format=rdf_format, encoding="utf-8")
 	return len(set(graph.subjects(RDF.type, CRM.E27_Site)))
 
 
 def main():
 	parser = argparse.ArgumentParser(
-		description="Convert a tab-separated CSV file into CIDOC-CRM Turtle RDF."
+		description="Convert a tab-separated CSV file into CIDOC-CRM RDF."
 	)
 	parser.add_argument("input", type=Path, help="Input TSV/CSV file")
 	parser.add_argument(
-		"-o", "--output", type=Path, help="Output Turtle file (defaults to INPUT.ttl)"
+		"-o", "--output", type=Path, help="Output file (defaults to INPUT with a format-specific extension)"
+	)
+	parser.add_argument(
+		"-f",
+		"--format",
+		choices=SERIALIZER_FORMATS,
+		default="turtle",
+		help="RDFLib serializer format (default: %(default)s)",
 	)
 	parser.add_argument(
 		"--base-uri",
@@ -130,10 +165,13 @@ def main():
 		help="Namespace for generated site identifiers (default: %(default)s)",
 	)
 	args = parser.parse_args()
-	output_path = args.output or args.input.with_suffix(".ttl")
+	format_extension = FORMAT_EXTENSIONS.get(args.format, args.format.rsplit("/", 1)[-1])
+	output_path = args.output or args.input.with_suffix(f".{format_extension}")
 
 	try:
-		record_count = convert_csv_to_rdf(args.input, output_path, args.base_uri)
+		record_count = convert_csv_to_rdf(
+			args.input, output_path, args.base_uri, args.format
+		)
 	except (OSError, ValueError, csv.Error) as error:
 		parser.error(str(error))
 
