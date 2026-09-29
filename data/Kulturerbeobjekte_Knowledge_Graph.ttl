@@ -1,0 +1,187 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix keo: <https://example.org/vocab/kulturerbe/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f> a crm:E27_Site ;
+    crm:P1_is_identified_by <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/appellation>,
+        <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/identifier/interne_id>,
+        <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/identifier/pid> ;
+    crm:P2_has_type <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/11ddabd7-da64-4bc7-bf19-542f4982e85e>,
+        <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/32158911-65ef-4499-b1a5-1d0771cdd852>,
+        <http://www.wikidata.org/entity/Q105639819> ;
+    crm:P3_has_note "Reste einer keltischen Höhensiedlung, 5. Jh. v. Chr."@de ;
+    crm:P4_has_time-span <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/time-span> ;
+    crm:P67_refers_to <https://www.wikidata.org/wiki/Q1308634> ;
+    geo:hasGeometry <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/geometry> ;
+    keo:WKT "POLYGON ((438795.640926 5479965.809368,438824.204652 5479968.189678,438849.62596 5479942.657083,438883.84611 5479926.132981,438918.308276 5479909.263655,438943.220178 5479884.87881,438968.150362 5479830.386664,438977.131898 5479790.53417,439000.160601 5479751.552022,439027.539702 5479704.382595,439057.522 5479662.593,439095.126483 5479630.204144,439129.124222 5479628.344466,439162.573057 5479609.737846,439188.373962 5479581.016982,439195.878447 5479557.177432,439197.723801 5479520.988993,439187.146522 5479486.640285,439157.436707 5479458.81122,439155.067813 5479415.95764,439140.646687 5479378.531919,439116.401985 5479335.505578,439086.535208 5479305.144335,439056.297121 5479278.236588,439023.463227 5479265.665217,439024.542938 5479229.150319,439053.001022 5479200.431035,439075.142276 5479165.336895,439059.619298 5479135.296586,439013.503322 5479112.769824,438967.26482 5479070.090147,438931.041163 5479043.091173,438895.09366 5479028.363593,438860.68274 5479013.565914,438835.179071 5478979.733671,438807.703191 5478927.898878,438778.008716 5478888.146287,438733.925937 5478839.048562,438690.506362 5478806.947901,438655.202606 5478792.316286,438625.452703 5478808.260284,438598.832703 5478835.29572,438595.135277 5478883.093064,438598.053038 5478944.654448,438603.243417 5479033.791405,438579.419282 5479088.779995,438561.774879 5479128.711419,438461.453974 5479158.947134,438383.469096 5479191.371378,438305.296961 5479244.575283,438242.59181 5479298.223642,438226.283875 5479344.102982,438213.84862 5479387.154592,438197.487777 5479417.828288,438195.746295 5479453.10041,438206.30572 5479480.918305,438225.223523 5479526.882713,438260.100282 5479578.230551,438294.599642 5479653.88758,438325.459294 5479732.320466,438345.76224 5479787.28608,438368.755101 5479836.858784,438410.653629 5479859.930755,438449.892971 5479867.519302,438468.609645 5479882.027156,438500.355497 5479896.1855,438538.585275 5479903.004763,438586.343651 5479921.032167,438643.219334 5479932.525011,438722.474836 5479933.640401,438795.640926 5479965.809368))" ;
+    keo:befundfrei "false" ;
+    keo:beschreibung "Reste einer keltischen Höhensiedlung, 5. Jh. v. Chr." ;
+    keo:datenerhebungsqualitaet "Altvermessung sowie LIDAR (0-1m)" ;
+    keo:datenerstellung "2005-01-02" ;
+    keo:datenexport "2026-09-24" ;
+    keo:datenhaltende_institution "https://ror.org/03mpa3n40" ;
+    keo:datenhaltendes_system "pgis" ;
+    keo:datierung_abgeleitet "true" ;
+    keo:datierung_nach "-0380" ;
+    keo:datierung_von "-0530" ;
+    keo:epoche "http://uri.gbv.de/terminology/gdke_datierungsthesaurus/11ddabd7-da64-4bc7-bf19-542f4982e85e, http://uri.gbv.de/terminology/gdke_datierungsthesaurus/32158911-65ef-4499-b1a5-1d0771cdd852" ;
+    keo:fachbehoerde "https://ror.org/03mpa3n40" ;
+    keo:genehmigungsbehoerde "Kreisverwaltung Bad Dürkheim" ;
+    keo:interne_id "72035" ;
+    keo:keo_bezeichnung "Heidenmauer" ;
+    keo:koordinatenbezugssystem "EPSG:25832" ;
+    keo:lagebezeichnung_ags "07332002" ;
+    keo:lagebezeichnung_geonames "https://www.geonames.org/6557907/" ;
+    keo:lagegenauigkeit "exakt" ;
+    keo:letzte_aenderung "2008-10-14" ;
+    keo:literatur "Bernhard, H./Bernhard, G., Die Eisenzeit im Raum Bad Dürkheim. Archäologie in der Pfalz, Jahresbericht 2001 (Rahden/Westf. 2003), 297-321. Bernhard, H., Kreckel, Th., Die \"Heidenmauer\" bei Bad Dürkheim. In: Frühe Zentralisierungs- und urbanisierungsprozesse. Forschungen und Berichte zur Vor- und Frühgeschichte in Badenwürtemberg 101 (Stuttgart 2008), 27-38. Bernhard, H. et al, Das frühkeltische Machtzentrum von Bad Dürkheim. In: \"Fürstensitze\" und Zentralorte der frühen Kelten II. Forschungen und Berichte zur Vor- und Frühgeschichte in Badenwürtemberg 120 (Stuttgart 2008), 319-364." ;
+    keo:lizenz "CC BY 4.0" ;
+    keo:obertaegige_sichtbarkeit "Ja" ;
+    keo:pid "6d27ee52-c723-4b84-9d31-c87007c14a0f" ;
+    keo:translozierung "false" ;
+    keo:typ "http://www.wikidata.org/entity/Q105639819" ;
+    keo:urheber "https://ror.org/03mpa3n40" ;
+    keo:verweis_link "Bad Dürkheim 14a-d, Bad Dürkheim 9, Bad Dürkheim 42, https://rlp.museum-digital.de/object/37018," ;
+    keo:vorschaubild "https://upload.wikimedia.org/wikipedia/commons/7/7d/Heidenmauer2.jpg?utm_source=de.wikipedia.org&utm_campaign=index&utm_content=original" ;
+    keo:weitere_datenverknuepfung "https://www.wikidata.org/wiki/Q1308634" ;
+    keo:weitere_datierungsinformationen "Nach H. Bernhard beschränkt sich die Laufzeit der Höhensiedlung anhahnd der Typenchronologie, auf wenige Jahrzehnte am Ende Ha D3 und frühes LT A." .
+
+<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a> a crm:E27_Site ;
+    crm:P1_is_identified_by <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/appellation>,
+        <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/identifier/interne_id>,
+        <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/identifier/pid> ;
+    crm:P2_has_type <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/8263994c-84fc-42de-87f2-1e33472e80bb>,
+        <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/98c14dc7-1696-4746-925f-76ee4348906b>,
+        <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/e3ad75c2-fc6d-4d80-8428-5f1ef60fcfab>,
+        <http://www.wikidata.org/entity/Q30131649> ;
+    crm:P3_has_note "Umfassungsmauern der frühromanischen dreischiffigen Säulenbasilika mit Doppelturmfassade, um 1042; Krypta, gegen 1035; Reste des romanischen Kapitelsaals; spätgotisches ehem. Sommer- und ehem. Winterrefektorium; romanischer Klosterbrunnen; Reste der landschaftsgärtnerischen Gestaltung des Ruinenumfelds, 1844 von Johann Metzger"@de ;
+    crm:P4_has_time-span <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/time-span> ;
+    crm:P67_refers_to <https://www.wikidata.org/wiki/Q572384> ;
+    geo:hasGeometry <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/geometry> ;
+    keo:WKT "POLYGON ((438040.582484 5478632.714865,438066.9292 5478649.232073,438073.425752 5478638.917091,438054.623062 5478627.012,438068.84602 5478603.953934,438088.726603 5478616.316045,438086.473117 5478619.76739,438100.842225 5478628.201112,438102.407883 5478625.702726,438103.70837 5478625.902801,438105.069356 5478626.034398,438106.08281 5478625.422899,438106.681457 5478624.14964,438106.610537 5478622.657872,438105.647204 5478621.287237,438107.554847 5478618.202446,438116.095239 5478623.995246,438123.926536 5478612.719182,438115.264467 5478606.513668,438116.696058 5478604.057073,438117.759193 5478604.301528,438118.719661 5478604.140204,438119.75674 5478603.234299,438120.324183 5478601.805217,438119.946469 5478600.514404,438118.853036 5478599.520579,438122.32 5478595.095,438110.290518 5478587.11527,438105.813965 5478593.332705,438065.103638 5478567.601772,438069.847387 5478560.207032,438062.846863 5478555.754321,438041.765133 5478586.572246,438064.078429 5478601.145503,438049.784288 5478624.243943,438046.872679 5478622.487852,438040.582484 5478632.714865))" ;
+    keo:befundfrei "false" ;
+    keo:beschreibung "Umfassungsmauern der frühromanischen dreischiffigen Säulenbasilika mit Doppelturmfassade, um 1042; Krypta, gegen 1035; Reste des romanischen Kapitelsaals; spätgotisches ehem. Sommer- und ehem. Winterrefektorium; romanischer Klosterbrunnen; Reste der landschaftsgärtnerischen Gestaltung des Ruinenumfelds, 1844 von Johann Metzger" ;
+    keo:datenerhebungsqualitaet "Altvermessung sowie LIDAR (0-1m)" ;
+    keo:datenerstellung "2005-01-02" ;
+    keo:datenexport "2026-09-24" ;
+    keo:datenhaltende_institution "https://ror.org/03mpa3n40" ;
+    keo:datenhaltendes_system "pgis" ;
+    keo:datierung_abgeleitet "true" ;
+    keo:datierung_nach "1550" ;
+    keo:datierung_von "0450" ;
+    keo:epoche "http://uri.gbv.de/terminology/gdke_datierungsthesaurus/8263994c-84fc-42de-87f2-1e33472e80bb, http://uri.gbv.de/terminology/gdke_datierungsthesaurus/98c14dc7-1696-4746-925f-76ee4348906b, http://uri.gbv.de/terminology/gdke_datierungsthesaurus/e3ad75c2-fc6d-4d80-8428-5f1ef60fcfab" ;
+    keo:fachbehoerde "https://ror.org/03mpa3n40" ;
+    keo:genehmigungsbehoerde "Kreisverwaltung Bad Dürkheim" ;
+    keo:interne_id "71921" ;
+    keo:keo_bezeichnung "Klosterruine Limburg an der Haardt" ;
+    keo:koordinatenbezugssystem "EPSG:25832" ;
+    keo:lagebezeichnung_ags "07332002" ;
+    keo:lagebezeichnung_geonames "https://www.geonames.org/6557907/" ;
+    keo:lagegenauigkeit "exakt" ;
+    keo:letzte_aenderung "2021-12-13" ;
+    keo:literatur "Dehio, S. 558.; Bernhard, H., Barz, D., Frühe Burgen in der Pfalz. In: Burgen der Salierzeit 2 (Siegmaringen 1991), 132-137.; Thon, A et al., Limburg. In: Pfälzisches Burgenlexikon III (Kaiserslautern 2005), 422-430.; Kreddigkeit, J., Untermann, M., Limburg, Heilig Kreuz und St. Maria. In: Pfälzische Klosterlexikon 2 (Kaiserslautern 2014), 663-717." ;
+    keo:lizenz "CC BY 4.0" ;
+    keo:obertaegige_sichtbarkeit "Ja" ;
+    keo:pid "92283db2-7924-4031-9c88-054c20aff84a" ;
+    keo:translozierung "false" ;
+    keo:typ "http://www.wikidata.org/entity/Q30131649" ;
+    keo:urheber "https://ror.org/03mpa3n40" ;
+    keo:verweis_link "Bad Dürkheim 8, https://rlp.museum-digital.de/object/138757" ;
+    keo:vorschaubild "https://upload.wikimedia.org/wikipedia/commons/9/9b/2014_06_22_Klosterruine_Limburg.jpg" ;
+    keo:weitere_datenverknuepfung "https://www.wikidata.org/wiki/Q572384" ;
+    keo:weitere_datierungsinformationen "die frühe, hypotetische Gründung einer Burg im 7. Jh. beruht auf Lesefunden vor Ort (s. Bernhard/Barz)." .
+
+<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17> a crm:E27_Site ;
+    crm:P1_is_identified_by <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/appellation>,
+        <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/identifier/interne_id>,
+        <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/identifier/pid> ;
+    crm:P2_has_type <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/8263994c-84fc-42de-87f2-1e33472e80bb>,
+        <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/98c14dc7-1696-4746-925f-76ee4348906b>,
+        <http://uri.gbv.de/terminology/gdke_datierungsthesaurus/e3ad75c2-fc6d-4d80-8428-5f1ef60fcfab>,
+        <http://www.wikidata.org/entity/Q30131649> ;
+    crm:P3_has_note "Umfassungsmauern der frühromanischen dreischiffigen Säulenbasilika mit Doppelturmfassade, um 1042; Krypta, gegen 1035; Reste des romanischen Kapitelsaals; spätgotisches ehem. Sommer- und ehem. Winterrefektorium; romanischer Klosterbrunnen; Reste der landschaftsgärtnerischen Gestaltung des Ruinenumfelds, 1844 von Johann Metzger"@de ;
+    crm:P4_has_time-span <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/time-span> ;
+    crm:P67_refers_to <https://www.wikidata.org/wiki/Q572384> ;
+    geo:hasGeometry <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/geometry> ;
+    keo:WKT "POLYGON ((437809.800595 5478574.685986,437825.830644 5478595.574368,437849.349141 5478614.140386,437937.751654 5478703.282204,437995.040097 5478748.95,437964.060137 5478776.848584,437949.423272 5478788.242981,437980.264 5478804.633,438038.433 5478850.684,438076.412846 5478878.163239,438104.977114 5478901.966381,438115.956274 5478911.949391,438131.173342 5478928.894706,438155.250763 5478956.539542,438166.539 5478969.784,438175.266014 5478960.661501,438191.177 5478973.035,438201.495 5478984.876,438216.59 5478994.179,438219.75 5478995.271,438220.247 5478993.83,438225.557 5478995.664,438223.467717 5479002.19372,438262.812046 5479021.458801,438281.925151 5479020.612809,438294.366231 5479017.991511,438297.787267 5479015.732,438297.221 5479010.114,438306.764 5478998.671,438308.128523 5478990.257115,438310.641634 5478986.764812,438313.722466 5478984.885448,438317.878306 5478976.659107,438314.9561 5478960.848618,438322.357675 5478923.670234,438313.313413 5478836.799718,438320.530786 5478742.808249,438347.782161 5478637.707305,438341.637544 5478611.95446,438320.445444 5478587.651144,438286.266705 5478556.015912,438255.154508 5478526.373606,438193.252305 5478500.886311,438141.516377 5478467.821316,438105.744717 5478429.152431,438003.389794 5478363.13455,437945.925918 5478308.716558,437939.752839 5478306.162478,437929.314 5478298.617,437910.997 5478284.87,437897.268476 5478273.963262,437882.873 5478261.114,437874.706 5478249.719,437868.261662 5478238.455591,437866.41831 5478231.142854,437862.123 5478220.782,437860.404 5478208.177,437857.717308 5478191.803068,437856.093147 5478183.944945,437852.407 5478175.77,437844.64 5478165.904,437819.3 5478162.726,437781.515 5478167.884,437763.712738 5478170.546,437760.82957 5478172.723405,437754.318972 5478180.73003,437746.62 5478191.593,437701.215505 5478244.067625,437692.249394 5478271.929826,437699.035903 5478308.515807,437711.631103 5478333.028929,437715.894322 5478366.937881,437712.659847 5478396.587084,437721.514504 5478422.243037,437728.500915 5478439.337003,437739.331403 5478459.748035,437754.337958 5478475.597454,437769.06576 5478509.363127,437795.675262 5478547.399104,437809.800595 5478574.685986))" ;
+    keo:befundfrei "false" ;
+    keo:beschreibung "Umfassungsmauern der frühromanischen dreischiffigen Säulenbasilika mit Doppelturmfassade, um 1042; Krypta, gegen 1035; Reste des romanischen Kapitelsaals; spätgotisches ehem. Sommer- und ehem. Winterrefektorium; romanischer Klosterbrunnen; Reste der landschaftsgärtnerischen Gestaltung des Ruinenumfelds, 1844 von Johann Metzger" ;
+    keo:datenerhebungsqualitaet "Altvermessung sowie LIDAR (0-1m)" ;
+    keo:datenerstellung "2005-01-02" ;
+    keo:datenexport "2026-09-24" ;
+    keo:datenhaltende_institution "https://ror.org/03mpa3n40" ;
+    keo:datenhaltendes_system "pgis" ;
+    keo:datierung_abgeleitet "true" ;
+    keo:datierung_nach "1550" ;
+    keo:datierung_von "0450" ;
+    keo:epoche "http://uri.gbv.de/terminology/gdke_datierungsthesaurus/8263994c-84fc-42de-87f2-1e33472e80bb, http://uri.gbv.de/terminology/gdke_datierungsthesaurus/98c14dc7-1696-4746-925f-76ee4348906b, http://uri.gbv.de/terminology/gdke_datierungsthesaurus/e3ad75c2-fc6d-4d80-8428-5f1ef60fcfab" ;
+    keo:fachbehoerde "https://ror.org/03mpa3n40" ;
+    keo:genehmigungsbehoerde "Kreisverwaltung Bad Dürkheim" ;
+    keo:interne_id "71921" ;
+    keo:keo_bezeichnung "Klosterruine Limburg an der Haardt" ;
+    keo:koordinatenbezugssystem "EPSG:25832" ;
+    keo:lagebezeichnung_ags "07332002" ;
+    keo:lagebezeichnung_geonames "https://www.geonames.org/6557907/" ;
+    keo:lagegenauigkeit "exakt" ;
+    keo:letzte_aenderung "2021-12-13" ;
+    keo:literatur "Dehio, S. 558.; Bernhard, H., Barz, D., Frühe Burgen in der Pfalz. In: Burgen der Salierzeit 2 (Siegmaringen 1991), 132-137.; Thon, A et al., Limburg. In: Pfälzisches Burgenlexikon III (Kaiserslautern 2005), 422-430.; Kreddigkeit, J., Untermann, M., Limburg, Heilig Kreuz und St. Maria. In: Pfälzische Klosterlexikon 2 (Kaiserslautern 2014), 663-717." ;
+    keo:lizenz "CC BY 4.0" ;
+    keo:obertaegige_sichtbarkeit "Ja" ;
+    keo:pid "aa4c5f63-187c-4e06-bf51-22db22946e17" ;
+    keo:translozierung "false" ;
+    keo:typ "http://www.wikidata.org/entity/Q30131649" ;
+    keo:urheber "https://ror.org/03mpa3n40" ;
+    keo:verweis_link "Bad Dürkheim 8, https://rlp.museum-digital.de/object/138757" ;
+    keo:vorschaubild "https://upload.wikimedia.org/wikipedia/commons/9/9b/2014_06_22_Klosterruine_Limburg.jpg" ;
+    keo:weitere_datenverknuepfung "https://www.wikidata.org/wiki/Q572384" ;
+    keo:weitere_datierungsinformationen "die frühe, hypotetische Gründung einer Burg im 7. Jh. beruht auf Lesefunden vor Ort (s. Bernhard/Barz)." .
+
+<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/appellation> a crm:E41_Appellation ;
+    crm:P190_has_symbolic_content "Heidenmauer" .
+
+<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/geometry> a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/25832> POLYGON ((438795.640926 5479965.809368,438824.204652 5479968.189678,438849.62596 5479942.657083,438883.84611 5479926.132981,438918.308276 5479909.263655,438943.220178 5479884.87881,438968.150362 5479830.386664,438977.131898 5479790.53417,439000.160601 5479751.552022,439027.539702 5479704.382595,439057.522 5479662.593,439095.126483 5479630.204144,439129.124222 5479628.344466,439162.573057 5479609.737846,439188.373962 5479581.016982,439195.878447 5479557.177432,439197.723801 5479520.988993,439187.146522 5479486.640285,439157.436707 5479458.81122,439155.067813 5479415.95764,439140.646687 5479378.531919,439116.401985 5479335.505578,439086.535208 5479305.144335,439056.297121 5479278.236588,439023.463227 5479265.665217,439024.542938 5479229.150319,439053.001022 5479200.431035,439075.142276 5479165.336895,439059.619298 5479135.296586,439013.503322 5479112.769824,438967.26482 5479070.090147,438931.041163 5479043.091173,438895.09366 5479028.363593,438860.68274 5479013.565914,438835.179071 5478979.733671,438807.703191 5478927.898878,438778.008716 5478888.146287,438733.925937 5478839.048562,438690.506362 5478806.947901,438655.202606 5478792.316286,438625.452703 5478808.260284,438598.832703 5478835.29572,438595.135277 5478883.093064,438598.053038 5478944.654448,438603.243417 5479033.791405,438579.419282 5479088.779995,438561.774879 5479128.711419,438461.453974 5479158.947134,438383.469096 5479191.371378,438305.296961 5479244.575283,438242.59181 5479298.223642,438226.283875 5479344.102982,438213.84862 5479387.154592,438197.487777 5479417.828288,438195.746295 5479453.10041,438206.30572 5479480.918305,438225.223523 5479526.882713,438260.100282 5479578.230551,438294.599642 5479653.88758,438325.459294 5479732.320466,438345.76224 5479787.28608,438368.755101 5479836.858784,438410.653629 5479859.930755,438449.892971 5479867.519302,438468.609645 5479882.027156,438500.355497 5479896.1855,438538.585275 5479903.004763,438586.343651 5479921.032167,438643.219334 5479932.525011,438722.474836 5479933.640401,438795.640926 5479965.809368))"^^geo:wktLiteral .
+
+<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/identifier/interne_id> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content "72035" .
+
+<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/identifier/pid> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content "6d27ee52-c723-4b84-9d31-c87007c14a0f" .
+
+<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/time-span> a crm:E52_Time-Span ;
+    crm:P82a_begin_of_the_begin "-0530"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "-0380"^^xsd:gYear .
+
+<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/appellation> a crm:E41_Appellation ;
+    crm:P190_has_symbolic_content "Klosterruine Limburg an der Haardt" .
+
+<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/geometry> a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/25832> POLYGON ((438040.582484 5478632.714865,438066.9292 5478649.232073,438073.425752 5478638.917091,438054.623062 5478627.012,438068.84602 5478603.953934,438088.726603 5478616.316045,438086.473117 5478619.76739,438100.842225 5478628.201112,438102.407883 5478625.702726,438103.70837 5478625.902801,438105.069356 5478626.034398,438106.08281 5478625.422899,438106.681457 5478624.14964,438106.610537 5478622.657872,438105.647204 5478621.287237,438107.554847 5478618.202446,438116.095239 5478623.995246,438123.926536 5478612.719182,438115.264467 5478606.513668,438116.696058 5478604.057073,438117.759193 5478604.301528,438118.719661 5478604.140204,438119.75674 5478603.234299,438120.324183 5478601.805217,438119.946469 5478600.514404,438118.853036 5478599.520579,438122.32 5478595.095,438110.290518 5478587.11527,438105.813965 5478593.332705,438065.103638 5478567.601772,438069.847387 5478560.207032,438062.846863 5478555.754321,438041.765133 5478586.572246,438064.078429 5478601.145503,438049.784288 5478624.243943,438046.872679 5478622.487852,438040.582484 5478632.714865))"^^geo:wktLiteral .
+
+<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/identifier/interne_id> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content "71921" .
+
+<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/identifier/pid> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content "92283db2-7924-4031-9c88-054c20aff84a" .
+
+<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/time-span> a crm:E52_Time-Span ;
+    crm:P82a_begin_of_the_begin "0450"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "1550"^^xsd:gYear .
+
+<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/appellation> a crm:E41_Appellation ;
+    crm:P190_has_symbolic_content "Klosterruine Limburg an der Haardt" .
+
+<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/geometry> a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/25832> POLYGON ((437809.800595 5478574.685986,437825.830644 5478595.574368,437849.349141 5478614.140386,437937.751654 5478703.282204,437995.040097 5478748.95,437964.060137 5478776.848584,437949.423272 5478788.242981,437980.264 5478804.633,438038.433 5478850.684,438076.412846 5478878.163239,438104.977114 5478901.966381,438115.956274 5478911.949391,438131.173342 5478928.894706,438155.250763 5478956.539542,438166.539 5478969.784,438175.266014 5478960.661501,438191.177 5478973.035,438201.495 5478984.876,438216.59 5478994.179,438219.75 5478995.271,438220.247 5478993.83,438225.557 5478995.664,438223.467717 5479002.19372,438262.812046 5479021.458801,438281.925151 5479020.612809,438294.366231 5479017.991511,438297.787267 5479015.732,438297.221 5479010.114,438306.764 5478998.671,438308.128523 5478990.257115,438310.641634 5478986.764812,438313.722466 5478984.885448,438317.878306 5478976.659107,438314.9561 5478960.848618,438322.357675 5478923.670234,438313.313413 5478836.799718,438320.530786 5478742.808249,438347.782161 5478637.707305,438341.637544 5478611.95446,438320.445444 5478587.651144,438286.266705 5478556.015912,438255.154508 5478526.373606,438193.252305 5478500.886311,438141.516377 5478467.821316,438105.744717 5478429.152431,438003.389794 5478363.13455,437945.925918 5478308.716558,437939.752839 5478306.162478,437929.314 5478298.617,437910.997 5478284.87,437897.268476 5478273.963262,437882.873 5478261.114,437874.706 5478249.719,437868.261662 5478238.455591,437866.41831 5478231.142854,437862.123 5478220.782,437860.404 5478208.177,437857.717308 5478191.803068,437856.093147 5478183.944945,437852.407 5478175.77,437844.64 5478165.904,437819.3 5478162.726,437781.515 5478167.884,437763.712738 5478170.546,437760.82957 5478172.723405,437754.318972 5478180.73003,437746.62 5478191.593,437701.215505 5478244.067625,437692.249394 5478271.929826,437699.035903 5478308.515807,437711.631103 5478333.028929,437715.894322 5478366.937881,437712.659847 5478396.587084,437721.514504 5478422.243037,437728.500915 5478439.337003,437739.331403 5478459.748035,437754.337958 5478475.597454,437769.06576 5478509.363127,437795.675262 5478547.399104,437809.800595 5478574.685986))"^^geo:wktLiteral .
+
+<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/identifier/interne_id> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content "71921" .
+
+<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/identifier/pid> a crm:E42_Identifier ;
+    crm:P190_has_symbolic_content "aa4c5f63-187c-4e06-bf51-22db22946e17" .
+
+<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/time-span> a crm:E52_Time-Span ;
+    crm:P82a_begin_of_the_begin "0450"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "1550"^^xsd:gYear .
+
