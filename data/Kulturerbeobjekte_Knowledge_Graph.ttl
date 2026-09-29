@@ -1,9 +1,10 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix keo: <https://example.org/vocab/kulturerbe/> .
+@prefix keo_site: <https://example.org/kulturerbe/site/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f> a crm:E27_Site ;
+keo_site:6d27ee52-c723-4b84-9d31-c87007c14a0f a crm:E27_Site ;
     crm:P1_is_identified_by <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/appellation>,
         <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/identifier/interne_id>,
         <https://example.org/kulturerbe/site/6d27ee52-c723-4b84-9d31-c87007c14a0f/identifier/pid> ;
@@ -47,7 +48,7 @@
     keo:weitere_datenverknuepfung "https://www.wikidata.org/wiki/Q1308634" ;
     keo:weitere_datierungsinformationen "Nach H. Bernhard beschränkt sich die Laufzeit der Höhensiedlung anhahnd der Typenchronologie, auf wenige Jahrzehnte am Ende Ha D3 und frühes LT A." .
 
-<https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a> a crm:E27_Site ;
+keo_site:92283db2-7924-4031-9c88-054c20aff84a a crm:E27_Site ;
     crm:P1_is_identified_by <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/appellation>,
         <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/identifier/interne_id>,
         <https://example.org/kulturerbe/site/92283db2-7924-4031-9c88-054c20aff84a/identifier/pid> ;
@@ -92,7 +93,7 @@
     keo:weitere_datenverknuepfung "https://www.wikidata.org/wiki/Q572384" ;
     keo:weitere_datierungsinformationen "die frühe, hypotetische Gründung einer Burg im 7. Jh. beruht auf Lesefunden vor Ort (s. Bernhard/Barz)." .
 
-<https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17> a crm:E27_Site ;
+keo_site:aa4c5f63-187c-4e06-bf51-22db22946e17 a crm:E27_Site ;
     crm:P1_is_identified_by <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/appellation>,
         <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/identifier/interne_id>,
         <https://example.org/kulturerbe/site/aa4c5f63-187c-4e06-bf51-22db22946e17/identifier/pid> ;

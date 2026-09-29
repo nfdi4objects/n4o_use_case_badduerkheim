@@ -19,13 +19,16 @@ python3 csv2rdf.py data/Kulturerbeobjekte_Knowledge_Graph.csv
 ```
 
 By default, the output is written beside the input file with a `.ttl` extension.
-Choose a different output path and the base URI for generated site identifiers
+Choose a different output path and the namespace for generated site identifiers
 with:
 
 ```sh
 python3 csv2rdf.py input.tsv --output output.ttl \
-	--base-uri https://data.example.org/kulturerbe
+	--base-uri https://data.example.org/kulturerbe/site/
 ```
+
+By default, site identifiers use the `keo_site:` namespace, mapped to
+`https://example.org/kulturerbe/site/`.
 
 Each CSV record becomes a `crm:E27_Site`. Names and identifiers are represented
 as CRM appellations/identifiers, descriptions as `crm:P3_has_note`, types and

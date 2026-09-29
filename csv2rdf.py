@@ -12,6 +12,7 @@ from rdflib.namespace import RDF, XSD
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 GEO = Namespace("http://www.opengis.net/ont/geosparql#")
 KEO = Namespace("https://example.org/vocab/kulturerbe/")
+KEO_SITE = Namespace("https://example.org/kulturerbe/site/")
 EPSG_URIS = {
 	"EPSG:25832": "http://www.opengis.net/def/crs/EPSG/0/25832",
 }
@@ -46,7 +47,8 @@ def add_site(graph, row, row_number, base_uri):
 	"""Convert one CSV record into CRM and source-vocabulary triples."""
 	identifier = row.get("pid", "").strip() or row.get("interne_id", "").strip()
 	identifier = identifier or f"record-{row_number:06d}"
-	subject = URIRef(f"{base_uri.rstrip('/')}/site/{quote(identifier, safe='')}")
+	site_namespace = Namespace(base_uri.rstrip("/") + "/")
+	subject = site_namespace[quote(identifier, safe="")]
 
 	graph.add((subject, RDF.type, CRM.E27_Site))
 	add_source_fields(graph, subject, row)
@@ -100,6 +102,8 @@ def convert_csv_to_rdf(input_path, output_path, base_uri):
 	graph.bind("crm", CRM)
 	graph.bind("geo", GEO)
 	graph.bind("keo", KEO)
+	site_namespace = Namespace(base_uri.rstrip("/") + "/")
+	graph.bind("keo_site", site_namespace)
 
 	with open(input_path, newline="", encoding="utf-8-sig") as csv_file:
 		reader = csv.DictReader(csv_file, delimiter="\t")
@@ -122,8 +126,8 @@ def main():
 	)
 	parser.add_argument(
 		"--base-uri",
-		default="https://example.org/kulturerbe",
-		help="Base URI for generated site identifiers",
+		default=str(KEO_SITE),
+		help="Namespace for generated site identifiers (default: %(default)s)",
 	)
 	args = parser.parse_args()
 	output_path = args.output or args.input.with_suffix(".ttl")
