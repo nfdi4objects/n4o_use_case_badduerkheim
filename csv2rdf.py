@@ -81,26 +81,22 @@ def add_site(graph, row, row_number, base_uri):
 	graph.add((subject, RDF.type, CRM.E27_Site))
 	add_source_fields(graph, subject, row)
 
-	if row.get("keo_bezeichnung", "").strip():
+	if name := row.get("keo_bezeichnung", "").strip():
 		add_appellation(
-			graph, subject, row["keo_bezeichnung"], "appellation", CRM.E41_Appellation
+			graph, subject, name, "appellation", CRM.E41_Appellation
 		)
 	for field in ("pid", "interne_id"):
-		value = row.get(field, "").strip()
-		if value:
+		if value := row.get(field, "").strip():
 			add_appellation(graph, subject, value, f"identifier/{field}", CRM.E42_Identifier)
 
 	for field in ("beschreibung", "erweiterte_beschreibung", "bemerkung"):
-		value = row.get(field, "").strip()
-		if value:
+		if value := row.get(field, "").strip():
 			graph.add((subject, CRM.P3_has_note, Literal(value, lang="de")))
 
 	for field in ("typ", "epoche"):
-		value = row.get(field, "").strip()
-		if value:
+		if value := row.get(field, "").strip():
 			for item in value.split(","):
-				item = item.strip()
-				if item:
+				if item := item.strip():
 					graph.add((subject, CRM.P2_has_type, URIRef(item)))
 
 	start = row.get("datierung_von", "").strip()
@@ -114,13 +110,11 @@ def add_site(graph, row, row_number, base_uri):
 		if end:
 			graph.add((time_span, CRM.P82b_end_of_the_end, Literal(end, datatype=XSD.gYear)))
 
-	wkt = row.get("WKT", "").strip()
-	if wkt:
+	if wkt := row.get("WKT", "").strip():
 		add_geometry(graph, subject, wkt, row.get("koordinatenbezugssystem", ""))
 
 	for value in row.get("weitere_datenverknuepfung", "").split(","):
-		value = value.strip()
-		if value.startswith(("http://", "https://")):
+		if (value := value.strip()).startswith(("http://", "https://")):
 			graph.add((subject, CRM.P67_refers_to, URIRef(value)))
 
 
