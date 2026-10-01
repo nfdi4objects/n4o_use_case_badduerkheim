@@ -67,8 +67,9 @@ def add_geometry(graph, subject, wkt, crs):
 	graph.add((subject, GEO.hasGeometry, geometry))
 	graph.add((geometry, RDF.type, GEO.Geometry))
 	crs_uri = EPSG_URIS.get(crs.strip().upper())
-	lexical_value = f"<{crs_uri}> {wkt.strip()}" if crs_uri else wkt.strip()
-	graph.add((geometry, GEO.asWKT, Literal(lexical_value, datatype=GEO.wktLiteral)))
+	if crs_uri:
+		graph.add((geometry, KEO.coordinateReferenceSystem, URIRef(crs_uri)))
+	graph.add((geometry, GEO.asWKT, Literal(wkt.strip(), datatype=GEO.wktLiteral)))
 
 
 def add_site(graph, row, row_number, base_uri):

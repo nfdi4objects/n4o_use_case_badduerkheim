@@ -39,5 +39,7 @@ Each CSV record becomes a `crm:E27_Site`. Names and identifiers are represented
 as CRM appellations/identifiers, descriptions as `crm:P3_has_note`, types and
 epochs as `crm:P2_has_type`, and dating bounds as a `crm:E52_Time-Span`.
 WKT geometries are attached using GeoSPARQL; the sample's `EPSG:25832` CRS is
-included in each WKT literal. All non-empty CSV fields are also retained as
-literal properties in the `keo:` source-data namespace.
+recorded as a URI-valued `keo:coordinateReferenceSystem` property on each
+geometry. WKT literals contain only the geometry text. All non-empty CSV
+fields are also retained as literal properties in the `keo:` source-data
+namespace.
