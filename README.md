@@ -58,7 +58,11 @@ fields are also retained as literal properties in the `keo:` source-data
 namespace.
 
 ## Sparql API
-Here are some simple examples for public data access by Sparql commands:
+The current Sparql endpoint is: 
+```
+https://graph.nfdi4objects.net/dev/api/sparql 
+```
+Here are some simple examples (shell) for public data access with Sparql commands:
 ```sh
 curl --data-urlencode 'query=DESCRIBE <http://example.org/collections/1>' -G https://graph.nfdi4objects.net/dev/api/sparql
 ```
