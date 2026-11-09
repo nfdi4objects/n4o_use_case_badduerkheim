@@ -43,3 +43,14 @@ recorded as a URI-valued `keo:coordinateReferenceSystem` property on each
 geometry. WKT literals contain only the geometry text. All non-empty CSV
 fields are also retained as literal properties in the `keo:` source-data
 namespace.
+
+## Sparql API
+Here are some simple examples for public data access by Sparql commands:
+```sh
+curl --data-urlencode 'query=DESCRIBE <http://example.org/collections/1>' -G https://graph.nfdi4objects.net/dev/api/sparql
+```
+
+```sh
+curl --data-urlencode 'query=SELECT * WHERE { GRAPH <http://example.org/collections/1> { ?s ?p ?o } } LIMIT 100' https://graph.nfdi4objects.net/dev/api/sparql
+```
+
