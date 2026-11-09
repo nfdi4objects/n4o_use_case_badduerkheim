@@ -1,4 +1,4 @@
-"""Convert a tab-separated cultural heritage CSV file to CIDOC-CRM Turtle."""
+"""Convert a cultural heritage CSV file to CIDOC-CRM RDF."""
 
 import argparse
 import csv
@@ -119,8 +119,10 @@ def add_site(graph, row, row_number, base_uri):
 			graph.add((subject, CRM.P67_refers_to, URIRef(value)))
 
 
-def convert_csv_to_rdf(input_path, output_path, base_uri, rdf_format="turtle"):
-	"""Read a tab-separated CSV and serialize its records in the requested RDF format."""
+def convert_csv_to_rdf(
+	input_path, output_path, base_uri, rdf_format="turtle", delimiter=";"
+):
+	"""Read a delimited CSV and serialize its records in the requested RDF format."""
 	graph = Graph()
 	graph.bind("crm", CRM)
 	graph.bind("geo", GEO)
@@ -129,7 +131,7 @@ def convert_csv_to_rdf(input_path, output_path, base_uri, rdf_format="turtle"):
 	graph.bind("keo_site", site_namespace)
 
 	with open(input_path, newline="", encoding="utf-8-sig") as csv_file:
-		reader = csv.DictReader(csv_file, delimiter="\t")
+		reader = csv.DictReader(csv_file, delimiter=delimiter)
 		if not reader.fieldnames:
 			raise ValueError("The input file is empty or has no header row.")
 		for row_number, row in enumerate(reader, start=1):
@@ -141,9 +143,15 @@ def convert_csv_to_rdf(input_path, output_path, base_uri, rdf_format="turtle"):
 
 def main():
 	parser = argparse.ArgumentParser(
-		description="Convert a tab-separated CSV file into CIDOC-CRM RDF."
+		description="Convert a delimited CSV file into CIDOC-CRM RDF."
 	)
 	parser.add_argument("input", type=Path, help="Input TSV/CSV file")
+	parser.add_argument(
+		"-d",
+		"--delimiter",
+		default=";",
+		help="CSV field delimiter (default: %(default)s)",
+	)
 	parser.add_argument(
 		"-o", "--output", type=Path, help="Output file (defaults to INPUT with a format-specific extension)"
 	)
@@ -165,7 +173,7 @@ def main():
 
 	try:
 		record_count = convert_csv_to_rdf(
-			args.input, output_path, args.base_uri, args.format
+			args.input, output_path, args.base_uri, args.format, args.delimiter
 		)
 	except (OSError, ValueError, csv.Error) as error:
 		parser.error(str(error))

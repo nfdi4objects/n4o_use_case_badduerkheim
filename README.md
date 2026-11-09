@@ -1,9 +1,10 @@
 # n4o_use_case_badduerkheim
 Data and Software for the AG "Use case Bad Dürkheim"
 
-## Convert TSV to CIDOC-CRM RDF
+## Convert CSV to CIDOC-CRM RDF
 
-`csv2rdf.py` converts a tab-separated UTF-8 CSV file into RDF using RDFLib.
+`csv2rdf.py` converts a UTF-8 CSV file into RDF using RDFLib. The field
+delimiter defaults to `;` and can be changed with `-d` or `--delimiter`.
 Turtle is the default serialization format; other installed RDFLib serializer
 formats are available through the command-line option.
 
@@ -11,6 +12,12 @@ Install the dependency:
 
 ```sh
 python3 -m pip install -r requirements.txt
+```
+
+Run the tests with:
+
+```sh
+python3 -m unittest discover -s tests -v
 ```
 
 Convert the sample data:
@@ -26,6 +33,12 @@ identifiers with:
 ```sh
 python3 csv2rdf.py input.tsv --format json-ld --output output.jsonld \
 	--base-uri https://data.example.org/kulturerbe/site/
+```
+
+For a tab-separated file, specify the tab delimiter:
+
+```sh
+python3 csv2rdf.py input.tsv -d "$(printf '\t')"
 ```
 
 Use `python3 csv2rdf.py --help` to list the serializer formats registered in
