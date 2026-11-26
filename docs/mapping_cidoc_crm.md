@@ -17,6 +17,7 @@ Grundlagen:
 - [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
   für die Verwaltungsangaben des Datensatzes, weil CIDOC CRM dafür keine
   passenden Eigenschaften hat
+- [PROV-O](https://www.w3.org/TR/prov-o/) für den Zeitpunkt des Datenexports
 
 Ein LinkML-Schema ist für das Mapping nicht nötig. LinkML ordnet jedem Feld eine
 einzelne Eigenschaft zu. Die meisten Felder brauchen in CIDOC CRM aber einen
@@ -77,6 +78,7 @@ P70_documents dokumentiert.
 | `skos:` | `http://www.w3.org/2004/02/skos/core#` |
 | `bibo:` | `http://purl.org/ontology/bibo/` |
 | `edtf:` | `http://id.loc.gov/datatypes/edtf/` |
+| `prov:` | `http://www.w3.org/ns/prov#` |
 | `owl:`, `rdf:`, `rdfs:`, `xsd:` | W3C-Standardnamensräume |
 
 ## Feldweises Mapping
@@ -120,9 +122,10 @@ Metakonzepte ohne eigenen Knoten.
 | `datenhaltende_institution` | Datensatz → dcterms:publisher → Akteur | stellt den Datensatz bereit |
 | `datenhaltendes_system` | Datensatz → dcterms:source → System | |
 | `letzte_änderung` | Datensatz → dcterms:modified | xsd:date oder xsd:dateTime je nach Angabe |
-| `datenexport` | Datensatz → dcterms:issued | wie `letzte_änderung` |
+| `datenexport` | Datensatz → prov:generatedAtTime | Zeitpunkt, zu dem der exportierte Datensatz erzeugt wurde. dcterms:issued würde als Veröffentlichungsdatum gelesen. |
 | `datenerstellung` | Datensatz → dcterms:created | wie `letzte_änderung` |
 | `lizenz` | Datensatz → dcterms:license | CC-Kurznamen wie „CC BY 4.0“ und Links auf eine Sprachfassung wie `https://creativecommons.org/licenses/by/4.0/deed.de` werden zur Lizenz-URI `https://creativecommons.org/licenses/by/4.0/`. Andere URIs werden unverändert übernommen. Freitext wird zu einem dcterms:LicenseDocument mit dem Text als rdfs:label. |
+| `zugriffsrecht` | Datensatz → dcterms:accessRights → Eintrag der EU-Normdatentabelle [Access right](https://op.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/access-right) | „öffentlich“ wird `…/access-right/PUBLIC`, „eingeschränkt“ wird `…/RESTRICTED`, „nicht öffentlich“ wird `…/NON_PUBLIC`, jeweils unter `http://publications.europa.eu/resource/authority/access-right/` |
 | `urheber` | Datensatz → dcterms:creator → Akteur | |
 | `bemerkung` | Datensatz → P67i_is_referred_to_by → E33_Linguistic_Object (Typ „Bemerkung zum Datensatz“) | |
 
@@ -247,7 +250,7 @@ Array.
 
 ## Beispiel
 
-Ein fiktiver Grabhügel ergibt ohne die erweiterte Beschreibung 51 Tripel. Die
+Ein fiktiver Grabhügel ergibt ohne die erweiterte Beschreibung 52 Tripel. Die
 PID ist eine http-IRI, deshalb trägt der Datensatz keine eigene Kennung. Die
 Definitionen der Konzepte aus dem Vokabular sind ausgelassen.
 
@@ -257,6 +260,7 @@ Definitionen der Konzepte aus dem Vokabular sind ausgelassen.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix edtf: <http://id.loc.gov/datatypes/edtf/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -268,8 +272,9 @@ Definitionen der Konzepte aus dem Vokabular sind ausgelassen.
     dcterms:source <https://example.org/keo/system/PGIS> ;
     dcterms:created "1987-05-21"^^xsd:date ;
     dcterms:modified "2024-02-14T10:15:00"^^xsd:dateTime ;
-    dcterms:issued "2026-06-23T08:12:30"^^xsd:dateTime ;
+    prov:generatedAtTime "2026-06-23T08:12:30"^^xsd:dateTime ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dcterms:creator <https://ror.org/03mpa3n40> .
 
 <https://pid.example.org/keo/0001#keo> a crm:E18_Physical_Thing ;
@@ -332,6 +337,9 @@ Definitionen der Konzepte aus dem Vokabular sind ausgelassen.
 - [ ] **Anwendungsprofil:** Das Beispiel für typisierte Kennungen nennt
   `rdfs:value`. Diese Eigenschaft gibt es nicht. Das Mapping verwendet
   `rdf:value`, das sollte im Profil korrigiert werden.
+- [ ] **Zugriffsrechte:** Das Vokabular mit dem Knowledge Graph abstimmen. Neben
+  der EU-Normdatentabelle ist im Umfeld von Repositorien das Vokabular der
+  Confederation of Open Access Repositories (COAR) verbreitet.
 - [ ] **KEO-Klasse:** E18 lässt sich später über eine Konkordanz von Typen zu
   E22_Human-Made_Object oder E27_Site verfeinern.
 

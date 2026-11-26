@@ -12,9 +12,9 @@ import shapely
 import shapely.wkt
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.compare import isomorphic
-from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
+from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, XSD
 
-from csv2rdf import CRM, EDTF, GEO, KEO, build_graph, convert_csv_to_rdf, dating_edtf, wkt_literal
+from csv2rdf import CRM, EDTF, GEO, KEO, PROV, build_graph, convert_csv_to_rdf, dating_edtf, wkt_literal
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -329,6 +329,26 @@ class ValueRuleTests(CsvTestCase):
 		self.assertEqual(len(list(graph.objects(None, GEO.asWKT))), 2)
 		self.assertEqual({field for _, field, _ in warnings},
 						 {"pid", "fachbehörde", "datenhaltende_institution", "letzte_änderung", "datenexport"})
+
+	def test_access_rights_use_the_eu_authority_table(self):
+		graph, _, warnings = self.convert_rows([
+			dict(BASE, pid="https://pid.example.org/t/1", zugriffsrecht="öffentlich"),
+			dict(BASE, pid="https://pid.example.org/t/2", zugriffsrecht="Eingeschränkt"),
+			dict(BASE, pid="https://pid.example.org/t/3", zugriffsrecht="nicht öffentlich"),
+			dict(BASE, pid="https://pid.example.org/t/4", zugriffsrecht="ja"),
+		])
+		base = "http://publications.europa.eu/resource/authority/access-right/"
+		for number, code in [(1, "PUBLIC"), (2, "RESTRICTED"), (3, "NON_PUBLIC")]:
+			with self.subTest(code=code):
+				self.assertIn((URIRef(f"https://pid.example.org/t/{number}"), DCTERMS.accessRights, URIRef(base + code)), graph)
+		self.assertNotIn((URIRef("https://pid.example.org/t/4"), DCTERMS.accessRights, None), graph)
+		self.assertIn("value not allowed: ja", self.texts(warnings))
+
+	def test_export_date_is_the_generation_time_of_the_record(self):
+		graph, _, _ = self.convert_rows([dict(BASE, datenexport="2026-06-23T08:12:30")])
+		record = URIRef("https://pid.example.org/t/1")
+		self.assertIn((record, PROV.generatedAtTime, Literal("2026-06-23T08:12:30", datatype=XSD.dateTime)), graph)
+		self.assertNotIn((record, DCTERMS.issued, None), graph)
 
 	def test_esri_crs_with_latitude_first_is_swapped_and_reported_once(self):
 		graph, _, warnings = self.convert_rows([

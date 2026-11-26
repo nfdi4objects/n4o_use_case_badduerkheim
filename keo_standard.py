@@ -1,5 +1,5 @@
 """Definitions of the community standard for cultural heritage objects (KEO),
-version 1.1 of 25 November 2026, shared by csv2rdf.py and csv2json.py.
+version 1.1, shared by csv2rdf.py and csv2json.py.
 
 Part B of the standard defines the fields, part C the file formats. A CSV file
 uses commas as delimiter, UTF-8 and the field names as header row. Repeatable
@@ -46,6 +46,7 @@ FIELDS = {
 	"datenexport": False,
 	"datenerstellung": False,
 	"lizenz": False,
+	"zugriffsrecht": False,
 	"urheber": False,
 	"bemerkung": False,
 }

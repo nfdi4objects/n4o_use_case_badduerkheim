@@ -56,6 +56,7 @@ FORMAT_EXTENSIONS = {
 	"xml": "rdf",
 }
 BIBO = Namespace("http://purl.org/ontology/bibo/")
+PROV = Namespace("http://www.w3.org/ns/prov#")
 EDTF = URIRef("http://id.loc.gov/datatypes/edtf/EDTF")
 
 # Fields that expect a URI or a term. Text containing an embedded URI is
@@ -90,6 +91,14 @@ SCHEMES = {
 	"typ": "Typ",
 	"lagegenauigkeit": "Lagegenauigkeit",
 	"datenerhebungsqualitaet": "Datenerhebungsqualität",
+}
+
+# zugriffsrecht: values of the standard -> EU access right authority table
+ACCESS_RIGHTS = "http://publications.europa.eu/resource/authority/access-right/"
+ACCESS_RIGHT_VALUES = {
+	"öffentlich": "PUBLIC",
+	"eingeschränkt": "RESTRICTED",
+	"nicht öffentlich": "NON_PUBLIC",
 }
 
 CC_LICENSES = {
@@ -247,7 +256,7 @@ class Mapper:
 		self.language = language
 		self.warn = warn
 		self.graph = Graph()
-		for prefix, namespace in [("crm", CRM), ("geo", GEO), ("bibo", BIBO), ("skos", SKOS),
+		for prefix, namespace in [("crm", CRM), ("geo", GEO), ("bibo", BIBO), ("prov", PROV), ("skos", SKOS),
 								  ("dcterms", DCTERMS), ("owl", OWL), ("xsd", XSD),
 								  ("edtf", Namespace("http://id.loc.gov/datatypes/edtf/")),
 								  ("keo", KEO), ("keo_base", Namespace(self.base)),
@@ -449,7 +458,7 @@ class Mapper:
 			if not URI.match(value):
 				g.add((system, SKOS.prefLabel, Literal(value)))
 		for field, prop in [("letzte_änderung", DCTERMS.modified),
-							("datenexport", DCTERMS.issued),
+							("datenexport", PROV.generatedAtTime),
 							("datenerstellung", DCTERMS.created)]:
 			if field in record:
 				try:
@@ -458,6 +467,15 @@ class Mapper:
 					warn(field, str(error))
 		if "lizenz" in record:
 			g.add((dataset, DCTERMS.license, self.license(record["lizenz"])))
+		if "zugriffsrecht" in record:
+			value = record["zugriffsrecht"]
+			code = ACCESS_RIGHT_VALUES.get(re.sub(r"\s+", " ", value.lower()))
+			if code is None and value.startswith(ACCESS_RIGHTS):
+				code = value[len(ACCESS_RIGHTS):]
+			if code in ACCESS_RIGHT_VALUES.values():
+				g.add((dataset, DCTERMS.accessRights, URIRef(ACCESS_RIGHTS + code)))
+			else:
+				warn("zugriffsrecht", f"value not allowed: {value} (allowed: öffentlich, eingeschränkt, nicht öffentlich)")
 		if "urheber" in record:
 			g.add((dataset, DCTERMS.creator, self.actor(record["urheber"])))
 		if "bemerkung" in record:

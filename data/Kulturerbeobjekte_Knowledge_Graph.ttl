@@ -6,6 +6,7 @@
 @prefix keo: <https://example.org/vocab/kulturerbe/> .
 @prefix keov: <https://example.org/keo/vocab/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -14,26 +15,26 @@
 <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f> a crm:E31_Document ;
     dcterms:created "2005-01-02"^^xsd:date ;
     dcterms:creator <https://ror.org/03mpa3n40> ;
-    dcterms:issued "2026-09-24"^^xsd:date ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:modified "2008-10-14"^^xsd:date ;
     dcterms:publisher <https://ror.org/03mpa3n40> ;
     dcterms:source <https://example.org/keo/system/pgis> ;
     crm:P1_is_identified_by [ crm:P2_has_type <https://example.org/keo/vocab/identifikator/pid> ;
             rdf:value "6d27ee52-c723-4b84-9d31-c87007c14a0f" ] ;
-    crm:P70_documents <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#keo> .
+    crm:P70_documents <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#keo> ;
+    prov:generatedAtTime "2026-09-24"^^xsd:date .
 
 <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17> a crm:E31_Document ;
     dcterms:created "2005-01-02"^^xsd:date ;
     dcterms:creator <https://ror.org/03mpa3n40> ;
-    dcterms:issued "2026-09-24"^^xsd:date ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:modified "2021-12-13"^^xsd:date ;
     dcterms:publisher <https://ror.org/03mpa3n40> ;
     dcterms:source <https://example.org/keo/system/pgis> ;
     crm:P1_is_identified_by [ crm:P2_has_type <https://example.org/keo/vocab/identifikator/pid> ;
             rdf:value "aa4c5f63-187c-4e06-bf51-22db22946e17" ] ;
-    crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> .
+    crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> ;
+    prov:generatedAtTime "2026-09-24"^^xsd:date .
 
 <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#fachzustaendigkeit> a crm:E30_Right ;
     crm:P2_has_type <https://example.org/keo/vocab/zustaendigkeit/fachbehoerde> ;
@@ -182,11 +183,11 @@ keov:lagegenauigkeit a skos:ConceptScheme ;
         <https://example.org/keo/vocab/translozierung/nicht-transloziert> ;
     crm:P53_has_former_or_current_location <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#ort> ;
     crm:P67i_is_referred_to_by [ a crm:E33_Linguistic_Object ;
-            crm:P190_has_symbolic_content "Siehe Fundstellen: Bad Dürkheim 14a-d, Bad Dürkheim 9, Bad Dürkheim 42."@de ;
-            crm:P2_has_type <https://example.org/keo/vocab/text/erweiterte-beschreibung> ],
-        [ a crm:E33_Linguistic_Object ;
             crm:P190_has_symbolic_content "Reste einer keltischen Höhensiedlung, 5. Jh. v. Chr."@de ;
             crm:P2_has_type <https://example.org/keo/vocab/text/beschreibung> ],
+        [ a crm:E33_Linguistic_Object ;
+            crm:P190_has_symbolic_content "Siehe Fundstellen: Bad Dürkheim 14a-d, Bad Dürkheim 9, Bad Dürkheim 42."@de ;
+            crm:P2_has_type <https://example.org/keo/vocab/text/erweiterte-beschreibung> ],
         <https://rlp.museum-digital.de/object/37018> ;
     owl:sameAs <http://www.wikidata.org/entity/Q1308634> ;
     skos:prefLabel "Heidenmauer"@de ;
@@ -286,13 +287,8 @@ keov: a skos:ConceptScheme ;
 
 [] a bibo:Document,
         crm:E31_Document ;
-    rdfs:label "Keddigkeit, J., Untermann, M., Limburg, Heilig Kreuz und St. Maria. In: Pfälzisches Klosterlexikon 2 (Kaiserslautern 2014), 663-717." ;
-    crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> .
-
-[] a bibo:Document,
-        crm:E31_Document ;
-    rdfs:label "Bernhard, H., Barz, D., Frühe Burgen in der Pfalz. In: Burgen der Salierzeit 2 (Sigmaringen 1991), 132-137." ;
-    crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> .
+    rdfs:label "Bernhard, H./Bernhard, G., Die Eisenzeit im Raum Bad Dürkheim. Archäologie in der Pfalz, Jahresbericht 2001 (Rahden/Westf. 2003), 297-321." ;
+    crm:P70_documents <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#keo> .
 
 [] a bibo:Document,
         crm:E31_Document ;
@@ -301,13 +297,8 @@ keov: a skos:ConceptScheme ;
 
 [] a bibo:Document,
         crm:E31_Document ;
-    rdfs:label "Dehio, S. 558." ;
+    rdfs:label "Bernhard, H., Barz, D., Frühe Burgen in der Pfalz. In: Burgen der Salierzeit 2 (Sigmaringen 1991), 132-137." ;
     crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> .
-
-[] a bibo:Document,
-        crm:E31_Document ;
-    rdfs:label "Bernhard, H./Bernhard, G., Die Eisenzeit im Raum Bad Dürkheim. Archäologie in der Pfalz, Jahresbericht 2001 (Rahden/Westf. 2003), 297-321." ;
-    crm:P70_documents <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#keo> .
 
 [] a bibo:Document,
         crm:E31_Document ;
@@ -318,4 +309,14 @@ keov: a skos:ConceptScheme ;
         crm:E31_Document ;
     rdfs:label "Bernhard, H. et al., Das frühkeltische Machtzentrum von Bad Dürkheim. In: \"Fürstensitze\" und Zentralorte der frühen Kelten II. Forschungen und Berichte zur Vor- und Frühgeschichte in Baden-Württemberg 120 (Stuttgart 2010), 319-364." ;
     crm:P70_documents <https://example.org/keo/datensatz/6d27ee52-c723-4b84-9d31-c87007c14a0f#keo> .
+
+[] a bibo:Document,
+        crm:E31_Document ;
+    rdfs:label "Dehio, S. 558." ;
+    crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> .
+
+[] a bibo:Document,
+        crm:E31_Document ;
+    rdfs:label "Keddigkeit, J., Untermann, M., Limburg, Heilig Kreuz und St. Maria. In: Pfälzisches Klosterlexikon 2 (Kaiserslautern 2014), 663-717." ;
+    crm:P70_documents <https://example.org/keo/datensatz/aa4c5f63-187c-4e06-bf51-22db22946e17#keo> .
 
