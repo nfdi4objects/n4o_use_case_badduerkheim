@@ -322,27 +322,6 @@ Definitionen der Konzepte aus dem Vokabular sind ausgelassen.
     rdfs:label "Schmidt, K.: Die Grabhügel des Landkreises XY, in: Denkmalpflege in Brandenburg 12 (2019), S. 45–52, https://doi.org/10.xxxx/beispiel" ;
     crm:P70_documents <https://pid.example.org/keo/0001#keo> .
 ```
-
-## Offene Punkte
-
-- [ ] **Namensraum:** Für lokal erzeugte IRIs ist ein dauerhafter Namensraum
-  festzulegen. Bis dahin steht `https://example.org/keo/` als Platzhalter.
-- [ ] **Vokabular des Mappings:** Die 17 festen Konzepte sollten veröffentlicht
-  werden, etwa in DANTE, damit ihre IRIs auflösbar sind.
-- [ ] **Zuständigkeit als Recht:** Die Modellierung von `fachbehörde` und
-  `genehmigungsbehörde` als E30_Right mit NFDI4Objects abstimmen.
-- [ ] **Epochen aus Thesauri:** Thesaurus-Konzepte sind formal keine Zeiträume
-  (E4). Ihre Verwendung als Ziel von P10 ist verbreitet, sollte aber mit dem
-  Knowledge Graph abgestimmt werden.
-- [ ] **Anwendungsprofil:** Das Beispiel für typisierte Kennungen nennt
-  `rdfs:value`. Diese Eigenschaft gibt es nicht. Das Mapping verwendet
-  `rdf:value`, das sollte im Profil korrigiert werden.
-- [ ] **Zugriffsrechte:** Das Vokabular mit dem Knowledge Graph abstimmen. Neben
-  der EU-Normdatentabelle ist im Umfeld von Repositorien das Vokabular der
-  Confederation of Open Access Repositories (COAR) verbreitet.
-- [ ] **KEO-Klasse:** E18 lässt sich später über eine Konkordanz von Typen zu
-  E22_Human-Made_Object oder E27_Site verfeinern.
-
 ## Quellen
 
 - [CIDOC-CRM in RDF Application Profile](https://nfdi4objects.github.io/crm-rdf-ap),
