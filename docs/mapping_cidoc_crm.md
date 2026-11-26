@@ -4,6 +4,7 @@ Dieses Dokument legt fest, wie Datensätze nach dem Community-Standard für
 Kulturerbeobjekte (KEO) in RDF nach CIDOC CRM überführt werden. Es setzt Teil D
 „Eingang in den Knowledge Graph“ des Standards (Version 1.1 vom 25.11.2026) um
 und ergänzt die Regeln, die für eine automatische Konvertierung nötig sind.
+Umgesetzt ist es in [`csv2rdf.py`](../csv2rdf.py).
 
 Grundlagen:
 
